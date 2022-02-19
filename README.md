@@ -6,7 +6,7 @@ coming soon...
 ```
 
 ## Example plugin
-```
+```python
 from base import WirexUser
 from base.core import _error, is_admin
 from pyrogram import Client, filters
