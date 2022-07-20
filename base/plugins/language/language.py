@@ -7,7 +7,7 @@ from answers import answers
 import re
 
 
-@Base.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$') | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$')))
+@Base.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$', re.I) | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$', re.I)))
 @_error
 async def language(client: Base, message: Message):
     language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(
