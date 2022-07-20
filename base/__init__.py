@@ -14,4 +14,3 @@ class Base(Client):
             plugins=dict(root=f"{self.__class__.__name__.lower()}/plugins"),
             workdir="./",
         )
-Base().run()
