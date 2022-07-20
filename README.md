@@ -31,16 +31,14 @@ $ python -m base
 
 ## Example plugin
 ```python
-from base import WirexUser
-from base.core import _error, is_admin
-from pyrogram import Client, filters
+from ... import Base
+from pyrogram import filters
 from pyrogram.types import Message
 
 __PLUGIN__ = "Test"
 
-@WirexUser.on_message(filters.regex(r"^[Tt]est$") & is_admin("self"))
-@_error
-async def test(client: Client, update: Message):
+@Base.on_message(filters.regex(r"^[Tt]est$") & filters.me)
+async def test(client: Base, update: Message):
     await update.edit("...")
 
 ```
