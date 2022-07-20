@@ -1,0 +1,22 @@
+from ... import Base
+from pyrogram import filters
+from pyrogram.types import Message
+from db import *
+from answers import answers
+import re
+
+@Base.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$') | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$')))
+async def language(client: Base, message: Message):
+    language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(1).replace('فارسی', 'fa').replace('انگلیسی', 'en')
+    language = get_language()
+    
+    if language == language_for_set:
+        answer = answers['set_language_already']
+        if language == 'en':
+            await message.edit(answer['en'].format(language))
+        else:
+            await message.edit(answer['fa'].format(language))
+    else:
+        set_language(language_for_set)
+        answer = answers['language_changed']
+        await message.edit(answer[language_for_set].format(language_for_set))
