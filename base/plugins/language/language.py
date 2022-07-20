@@ -6,12 +6,14 @@ from db import *
 from answers import answers
 import re
 
+
 @Base.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$') | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$')))
 @_error
 async def language(client: Base, message: Message):
-    language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(1).replace('فارسی', 'fa').replace('انگلیسی', 'en')
+    language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(
+        1).replace('فارسی', 'fa').replace('انگلیسی', 'en')
     language = get_language()
-    
+
     if language == language_for_set:
         answer = answers['set_language_already']
         if language == 'en':
