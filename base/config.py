@@ -1,7 +1,7 @@
-api_id = 339469
-api_hash = '6b6f1f4afb79ff2474d4b19f8fbcca04'
+api_id = 0000000
+api_hash = ''
 
-phone_number = '+989013528551'
-bot_token = '5408065796:AAF8xG9s6gXP0qtms4-0cLJg0SAO3YTPkiM'
+phone_number = ''
+bot_token = ''
 db_number = 0
-sudo_user = 5187419061
+sudo_user = 0
