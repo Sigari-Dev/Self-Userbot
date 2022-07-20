@@ -23,6 +23,14 @@ answers = {
     'reply_on_media': {
         'en': 'Reply on media !',
         'fa': 'لطفا روی مدیا مورد نظر reply کنید !'
+    },
+    'dice': {
+        'en': 'Required number is {}!',
+        'fa': 'عدد مورد نظر {} است!'
+    },
+    'invalid_dice': {
+        'en': 'Send A Number Between 1 To 6!',
+        'fa': 'یک عدد بین 1 تا 6 بفرستید!'
     }
 }
 answers = {k:{k2:symbolize(v2) for k2,v2 in v.items()} for k,v in answers.items()}
