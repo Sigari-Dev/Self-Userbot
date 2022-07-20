@@ -1,5 +1,8 @@
-from ... import Base
-from ...core.error_handler import _error
+import sys
+sys.path.insert(0, "...")
+
+from base import Base
+from base.core.error_handler import _error
 from pyrogram import filters
 from pyrogram.types import Message
 from db import *
