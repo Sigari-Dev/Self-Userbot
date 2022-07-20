@@ -20,10 +20,7 @@ async def language(client: BaseCli, message: Message):
 
     if language == language_for_set:
         answer = answers['set_language_already']
-        if language == 'en':
-            await message.edit(answer['en'].format(language))
-        else:
-            await message.edit(answer['fa'].format(language))
+        await message.edit(answer[language].format(language))
     else:
         set_language(language_for_set)
         answer = answers['language_changed']

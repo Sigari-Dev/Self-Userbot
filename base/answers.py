@@ -10,5 +10,17 @@ answers = {
     'language_changed': {
         'en': 'Language changed to {} !',
         'fa': 'زبان ربات به {} تغییر کرد !'
+    },
+    'start_downloading': {
+        'en': 'Downloading started ...',
+        'fa': 'دانلود مدیا شروع شد ...'
+    },
+    'downloaded': {
+        'en': 'Media successfully saved in your saved messages !',
+        'fa': 'مدیا با موفقیت در سیو مسیج های شما ذخیره شد !'
+    },
+    'reply_on_media': {
+        'en': 'Reply on media !',
+        'fa': 'لطفا روی مدیا مورد نظر reply کنید !'
     }
 }

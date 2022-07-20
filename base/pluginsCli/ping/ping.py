@@ -8,6 +8,7 @@ from pyrogram.types import Message
 from db import *
 from answers import answers
 import re
+import os
 
 @BaseCli.on_message(filters.me & filters.regex('^(ping|(ro)?bot|ر?بات|پینگ)$', re.I))
 @BaseCli.on_edited_message(filters.me & filters.regex('^(ping|(ro)?bot|ر?بات|پینگ)$', re.I))
@@ -15,7 +16,4 @@ import re
 async def ping(client: BaseCli, message: Message):
     language = get_language()
     answer = answers['ping']
-    if language == 'en':
-        await message.edit(answer['en'])
-    else:
-        await message.edit(answer['fa'])
+    await message.edit(answer[language])
