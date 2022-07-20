@@ -10,6 +10,7 @@ from answers import answers
 import re
 
 @Base.on_message(filters.me & filters.regex('^(ping|(ro)?bot|ر?بات|پینگ)$', re.I))
+@Base.on_edited_message(filters.me & filters.regex('^(ping|(ro)?bot|ر?بات|پینگ)$', re.I))
 @_error
 async def ping(client: Base, message: Message):
     language = get_language()
