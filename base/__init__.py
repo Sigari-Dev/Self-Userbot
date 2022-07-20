@@ -17,8 +17,7 @@ class BaseCli(Client):
         )
 
 class BaseApi(Client):
-    def __init__(self, sudo):
-        self.sudo = sudo
+    def __init__(self):
         super().__init__(
             self.__class__.__name__.lower(),
             api_id=api_id,

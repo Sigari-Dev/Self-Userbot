@@ -1,14 +1,14 @@
 # Piniger UserBot
-from . import BaseCli, BaseApi
-from pyrogram import idle
+from . import BaseApi, BaseCli
+from pyrogram import compose
 import asyncio
 
 async def main():
-    cli = BaseCli()
-    await cli.start()
-    sudo = (await cli.get_me()).id
-    await BaseApi(sudo).start()
-    await idle()
+    apps = [
+        BaseCli(),
+        BaseApi(),
+    ]
+    await compose(apps)
 
 if __name__ == "__main__":
     asyncio.run(main())
