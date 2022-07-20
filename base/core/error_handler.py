@@ -1,4 +1,4 @@
-def _error(func):
+def error(func):
     async def inner_function(*args, **kwargs):
         try:
             await func(*args, **kwargs)

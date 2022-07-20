@@ -1,3 +1,4 @@
+from base.core import symbolize
 answers = {
     'ping': {
         'en': 'I am online !',
@@ -24,3 +25,4 @@ answers = {
         'fa': 'لطفا روی مدیا مورد نظر reply کنید !'
     }
 }
+answers = {k:{k2:symbolize(v2) for k2,v2 in v.items()} for k,v in answers.items()}

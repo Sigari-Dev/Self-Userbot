@@ -2,7 +2,7 @@ import sys
 sys.path.insert(0, "...")
 
 from base import BaseCli
-from base.core.error_handler import _error
+from base.core import error
 from pyrogram import filters
 from pyrogram.types import Message
 from db import *
@@ -12,7 +12,7 @@ import re
 
 @BaseCli.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$', re.I) | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$', re.I)))
 @BaseCli.on_edited_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$', re.I) | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$', re.I)))
-@_error
+@error
 async def language(client: BaseCli, message: Message):
     language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(
         1).replace('فارسی', 'fa').replace('انگلیسی', 'en')
