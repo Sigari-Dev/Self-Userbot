@@ -7,7 +7,7 @@ from base64 import b64encode
 def set_score_gamee(link, score):
     link = re.search("(\/game-bot\/\w+\-[0-9a-fA-F]+)", link).group(1)
     score = str(score)
-    
+
     headers = {
         'authority': 'api.service.gameeapp.com',
         'accept': '*/*',
@@ -25,7 +25,7 @@ def set_score_gamee(link, score):
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.62',
         'x-install-uuid': '9729b743-3543-4dd9-b2f7-b8bf27d34fc1',
         }
-    
+
     data = \
         '{"jsonrpc":"2.0","id":"game.getWebGameplayDetails","method":"game.getWebGameplayDetails","params":{"gameUrl":"' \
         + link + '"}}'

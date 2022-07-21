@@ -1,4 +1,5 @@
 from base.utils import symbolize
+
 answers = {
     'ping': {
         'en': 'I am online !',
@@ -27,6 +28,19 @@ answers = {
     'dice': {
         'en': 'Required number is {}!',
         'fa': 'عدد مورد نظر {} است!'
-    }
+    },
+    'check_update': {
+        'en': 'please wait...',
+        'fa': 'لطفا صبر کنید...'
+    },
+    'update': {
+        'en': 'The bot has been successfully updated.',
+        'fa': "ربات با موفقیت اپدیت شد."
+    },
+    'already_update': {
+        'en': 'There is no new update available!',
+        'fa': "اپدیت جدیدی در دسترس نمیباشد!"
+    },
 }
+
 answers = {k:{k2:symbolize(v2) for k2,v2 in v.items()} for k,v in answers.items()}

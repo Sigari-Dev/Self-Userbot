@@ -1,13 +1,14 @@
 import sys
+
 sys.path.insert(0, "...")
 
+import re
+
+from answers import answers
 from base import BaseCli
-from base.answers import answers
-from base.core import error
+from base.core import error, Message
 from base.database import *
 from pyrogram import filters
-from pyrogram.types import Message
-import re
 
 
 @BaseCli.on_message(filters.me & (filters.regex('^(setlang (en|fa|انگلیسی|فارسی))$', re.I) | filters.regex('^(تنظیم زبان (en|fa|انگلیسی|فارسی))$', re.I)))
@@ -16,12 +17,10 @@ import re
 async def language(client: BaseCli, message: Message):
     language_for_set = re.search('(en|fa|انگلیسی|فارسی)', message.text).group(
         1).replace('فارسی', 'fa').replace('انگلیسی', 'en')
-    language = get_language()
+    language = message.language()
 
     if language == language_for_set:
-        answer = answers['set_language_already']
-        await message.edit(answer[language].format(language))
+        await message.edit(answers['set_language_already'][language].format(language))
     else:
         set_language(language_for_set)
-        answer = answers['language_changed']
-        await message.edit(answer[language_for_set].format(language_for_set))
+        await message.edit(answers['language_changed'][language_for_set].format(language_for_set))
