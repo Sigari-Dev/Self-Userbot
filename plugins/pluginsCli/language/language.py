@@ -2,11 +2,11 @@ import sys
 sys.path.insert(0, "...")
 
 from base import BaseCli
+from base.answers import answers
 from base.core import error
+from base.database import *
 from pyrogram import filters
 from pyrogram.types import Message
-from db import *
-from answers import answers
 import re
 
 

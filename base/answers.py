@@ -1,4 +1,4 @@
-from base.core import symbolize
+from base.utils import symbolize
 answers = {
     'ping': {
         'en': 'I am online !',
@@ -27,10 +27,6 @@ answers = {
     'dice': {
         'en': 'Required number is {}!',
         'fa': 'عدد مورد نظر {} است!'
-    },
-    'invalid_dice': {
-        'en': 'Send A Number Between 1 To 6!',
-        'fa': 'یک عدد بین 1 تا 6 بفرستید!'
     }
 }
 answers = {k:{k2:symbolize(v2) for k2,v2 in v.items()} for k,v in answers.items()}
