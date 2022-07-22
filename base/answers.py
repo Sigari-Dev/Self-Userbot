@@ -29,6 +29,10 @@ answers = {
         'en': 'Required number is {}!',
         'fa': 'عدد مورد نظر {} است!'
     },
+    'dart': {
+        'en': 'The Dart Hit The Target!',
+        'fa': 'دارت به هدف خورد!'
+    },
     'check_update': {
         'en': 'please wait...',
         'fa': 'لطفا صبر کنید...'

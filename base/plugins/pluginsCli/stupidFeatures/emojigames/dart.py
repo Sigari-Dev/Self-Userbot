@@ -11,18 +11,17 @@ from base.core import Message, error
 from base.database import *
 from pyrogram import filters
 
-DICE_EMOJI = ['🎲', 'تاس', 'dice']
+DART_EMOJI = ["🎯", "دارت", "dart"]
 
-@BaseCli.on_message(filters.me & filters.regex(f'^({"|".join(DICE_EMOJI)}) ([1-6])$', re.I))
-@BaseCli.on_edited_message(filters.me & filters.regex(f'^({"|".join(DICE_EMOJI)}) ([1-6])$', re.I))
+@BaseCli.on_message(filters.me & filters.regex(f'^({"|".join(DART_EMOJI)}) (hit)$', re.I))
+@BaseCli.on_edited_message(filters.me & filters.regex(f'^({"|".join(DART_EMOJI)}) (hit)$', re.I))
 @error
-async def dice(client: BaseCli, message: Message):
+async def dart(client: BaseCli, message: Message):
     language = message.language()
-    required_number = message.text.split()[1]
-    await message.edit_text(answers['dice'][language].format(required_number))
     while True:
-        msg = (await client.send_dice(message.chat.id, "🎲"))
-        if msg.dice.value != int(required_number):
+        msg = (await client.send_dice(message.chat.id, "🎯"))
+        if msg.dice.value != 6:
             await msg.delete()
         else:
+            await message.edit_text(answers['dart'][language])
             break
