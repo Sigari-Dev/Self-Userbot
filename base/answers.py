@@ -45,6 +45,14 @@ answers = {
         'en': 'There is no new update available!',
         'fa': "اپدیت جدیدی در دسترس نمیباشد!"
     },
+    'already_action_mode': {
+        'en': 'Action mode already is \"{}\" !',
+        'fa': 'حالت ارسال اکشن در حال حاضر \"{}\" است !'
+    },
+    'action_mode_setted': {
+        'en': 'Action mode setted to \"{}\" !',
+        'fa': 'حالت ارسال اکشن به روی \"{}\" تنظیم شد.'
+    }
 }
 
 answers = {k:{k2:symbolize(v2) for k2,v2 in v.items()} for k,v in answers.items()}

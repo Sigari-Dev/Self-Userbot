@@ -12,3 +12,14 @@ def get_language():
 
 def set_language(lang):
     return database.set('bot:language', lang)
+
+def set_action_mode(action):
+    return database.set('bot:action', action)
+
+def get_action_mode():
+    action = database.get('bot:action')
+    if not action:
+        set_action_mode('off')
+        return 'off'
+    return action
+
