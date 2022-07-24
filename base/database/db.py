@@ -44,10 +44,13 @@ def get_action_type():
 def add_to_action_chats(chat_id):
     return database.sadd('bot:actionchats', str(chat_id))
 
-
+def remove_from_action_chats(chat_id):
+    return database.srem('bot:actionchats', str(chat_id))
+    
 def get_action_chats():
     return database.smembers('bot:actionchats')
 
 
 def is_in_action_chats(chat_id):
     return database.sismember('bot:actionchats', str(chat_id))
+

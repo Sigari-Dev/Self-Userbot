@@ -3,12 +3,23 @@ import sys
 sys.path.insert(0, "...")
 
 from pyrogram import filters
+from pyrogram.enums import chat_action
 from base.database import *
 from base.core import Message, error
 from base.utils import get_by_language
 from base import BaseCli
 from answers import answers
 import re
+
+@BaseCli.on_message(~filters.me)
+async def do_action(client: BaseCli, message: Message):
+    action_type = eval("chat_action.ChatAction." + get_action_type().upper())
+    if get_action_mode() == 'all':
+        await client.send_chat_action(message.chat.id, action_type)
+    elif get_action_mode() == 'custom':
+        if is_in_action_chats(message.chat.id):
+            await client.send_chat_action(message.chat.id, action_type)
+
 
 @BaseCli.on_message(filters.me & (filters.regex("setaction (all|custom|off|همه|خاموش|شخصی)", re.I) | filters.regex("ارسال اکشن (all|custom|off|همه|خاموش|شخصی)", re.I)))
 @error
@@ -61,11 +72,13 @@ async def action_custom(client: BaseCli, message: Message):
     
     if add_rem == 'add':
         if not is_added:
+            add_to_action_chats(message.chat.id)
             await message.edit(answers['added_to_action_chats'][language])
         else:
             await message.edit(answers['already_added_to_action_chats'][language])
     else:
         if is_added:
+            remove_from_action_chats(message.chat.id)
             await message.edit(answers['removed_from_action_chats'][language])
         else:
             await message.edit(answers['already_removed_from_action_chats'][language])
