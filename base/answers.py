@@ -52,6 +52,30 @@ answers = {
     'action_mode_setted': {
         'en': 'Action mode setted to \"{}\" !',
         'fa': 'حالت ارسال اکشن به روی \"{}\" تنظیم شد.'
+    },
+    'already_action_type': {
+        'en': 'Action type already is \"{}\" !',
+        'fa': 'نوع اکشن در حال حاضر \"{}\" است !'
+    },
+    'action_type_setted': {
+        'en': 'Action type setted to \"{}\" !',
+        'fa': 'نوع اکشن به روی \"{}\" تنظیم شد !'
+    },
+    'added_to_action_chats': {
+        'en': 'This chat added to action chats !',
+        'fa': 'این چت به لیست ارسال اکشن اضافه شد !'
+    },
+    'already_added_to_action_chats': {
+        'en': 'This chat already is in action chats !',
+        'fa': 'این چت در حال حاضر در لیست ارسال اکشن وجود دارد !'
+    },
+    'removed_from_action_chats': {
+        'en': 'This chat removed from action chats !',
+        'fa': 'این چت از لیست ارسال اکشن حذف شد !'
+    },
+    'already_removed_from_action_chats': {
+        'en': 'This chat already not exist in action chats !',
+        'fa': 'این چت در حال حاضر در لیست ارسال اکشن وجود ندارد !'
     }
 }
 
